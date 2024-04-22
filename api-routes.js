@@ -17,11 +17,12 @@ router.get('/', function(req, res)
 const { get } = require('mongoose');
 
 //import Content controller
-var contentController = require('./contentController');
+var playerController = require('./playerController');
 
 
 //routes
-
+router.route('/players')
+.post(playerController.new)
 
 //export 
 module.exports = router;

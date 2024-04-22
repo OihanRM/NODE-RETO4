@@ -5,7 +5,7 @@ let express = require('express');
 let bodyParser = require('body-parser');
 let mongoose = require('mongoose');
 
-console.log('running index');
+console.log('running AFG web service index');
 
 //import Router
 let apiRoutes = require("./api-routes");
