@@ -27,7 +27,12 @@ router.route('/player')
 .get(playerController.index)
 .post(playerController.new)
 
+router.route('/player/:player_name')
+.delete(playerController.delete)
+.get(playerController.update)
+
 router.route('/score')
 .get(scoreController.index)
+
 //export 
 module.exports = router;

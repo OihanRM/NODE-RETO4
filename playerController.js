@@ -26,35 +26,72 @@ exports.index = function(req, res)
     });
 }
 
-exports.new = function(req, res) {
+exports.new = function(req, res)
+{
     var newPlayer = new Player();
     newPlayer.name = req.body.name;
     newPlayer.password = req.body.password;
 
-    newPlayer.save().then(function(savedPlayer) {
-        // Guardar la puntuación una vez que se haya guardado el jugador
-        var newScore = new Score();
-        newScore.score = 0;
-        newScore.playerID = savedPlayer._id; // Asignar el ID del jugador guardado
-        return newScore.save(); // Devolver la promesa para encadenarla
-    }).then(function(savedScore) {
-        // Respuesta al cliente
-        res.json({
-            message: "New player and score generated",
-            data: {
-                player: newPlayer,
-                score: savedScore
-            }
+    newPlayer.save().then(function()
+    {
+        res.json(
+            {
+                message: "New player generated",
+                data: newPlayer
+            });
+    }).catch(function(err)
+    {
+        res.json(
+            {
+                status: "error",
+                message: err
+            });
+    });    
+}
+
+exports.delete = function(req, res)
+{
+    Player.deleteOne(
+        {
+            name: req.params.player_name
+        }).then(function()
+        {
+            res.json(
+                {
+                    status: "succes",
+                    message: "Player deleted"
+                });
+        }).catch(function(err)
+        {
+            res.json(
+                {
+                    status: "error",
+                    message: err
+                });
         });
-    }).catch(function(err) {
-        // Manejo de errores
-        res.json({
-            status: "error",
-            message: err
+}
+exports.update = function(req, res)
+{
+    Player.findOne(req.params.player_name).then(function(player)
+    {
+        player.name = req.body.name ? req.body.name : player.name;
+        player.password = req.body.password ? req.body.password : player.password;
+
+        player.save().then(function()
+        {
+            res.json(
+                {
+                    message: "Player updated",
+                    data: player
+                });
+        }).catch(function(err)
+        {
+            res.json(
+                {
+                    status: "error",
+                    message: err
+                });
         });
     });
-};
-
-
-
+}
 

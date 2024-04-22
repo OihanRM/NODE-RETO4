@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 //setup schema
 var scoreSchema = mongoose.Schema({
     player: String,
-    Score : [Number]
+    Score : Number
 },{collection: 'score'});
 
 var Score = module.exports = mongoose.model('score', scoreSchema);

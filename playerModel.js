@@ -6,9 +6,12 @@ var mongoose = require('mongoose');
 var playerSchema = mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        unique: true,
+        avatar: Number
     },
-    password: String
+    password: String,
+    games: Number
 },{collection: 'player'});
 
 var Player = module.exports = mongoose.model('player', playerSchema);
