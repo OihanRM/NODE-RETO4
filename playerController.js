@@ -26,8 +26,7 @@ exports.index = function(req, res)
 exports.new = function(req, res)
 {
     var newPlayer = new Player();
-    console.log(req.body.name+"<--------------------------------------------------------------------------------");
-    newPlayer.name = req.body.name ? req.body.name : newPlayer.name;
+    newPlayer.name = req.body.name;
     newPlayer.password = req.body.password;
 
     newPlayer.save().then(function()
