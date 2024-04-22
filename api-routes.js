@@ -22,6 +22,7 @@ var playerController = require('./playerController');
 
 //routes
 router.route('/players')
+.get(playerController.index)
 .post(playerController.new)
 
 //export 
