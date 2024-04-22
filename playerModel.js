@@ -1,9 +1,9 @@
 //filename playerModel.js
 
-var mongooser = require('mongoose');
+var mongoose = require('mongoose');
 
 //setup Schema
-var playerSchema = mongooser.Schema({
+var playerSchema = mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -11,7 +11,7 @@ var playerSchema = mongooser.Schema({
     password: String
 });
 
-var Player = module.exports = mongooser.model('player', playerSchema);
+var Player = module.exports = mongoose.model('player', playerSchema);
 
 module.exports.get = function()
 {
