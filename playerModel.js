@@ -13,7 +13,7 @@ var playerSchema = mongooser.Schema({
 
 var Player = module.exports = mongooser.model('player', playerSchema);
 
-module.esports.get = function()
+module.exports.get = function()
 {
     return Player.find().exec();
 }
