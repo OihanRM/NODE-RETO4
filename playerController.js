@@ -31,7 +31,9 @@ exports.new = function(req, res)
     var newPlayer = new Player();
     newPlayer.name = req.body.name;
     newPlayer.password = req.body.password;
-
+    newPlayer.games = 0;
+    newPlayer.avatar = req.body.avatar;
+    
     newPlayer.save().then(function()
     {
         res.json(
