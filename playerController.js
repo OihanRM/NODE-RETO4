@@ -14,6 +14,7 @@ exports.index = function(req, res)
             message: "Players retrieved successfully",
             data: players
         });
+        console.log(players);
     }).catch(function(err)
     {
         res.json(
