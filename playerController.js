@@ -7,6 +7,7 @@ exports.index = function(req, res)
 {
     Player.find().then(function(players)
     {
+        console.log("Players retrieved successfully");
         res.json(
         {
             status: "succes",
