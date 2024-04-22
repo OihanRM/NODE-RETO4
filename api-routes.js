@@ -18,6 +18,8 @@ const { get } = require('mongoose');
 
 //import Content controller
 var playerController = require('./playerController');
+var scoreController = require('./scoreController');
+
 
 
 //routes
@@ -25,5 +27,7 @@ router.route('/player')
 .get(playerController.index)
 .post(playerController.new)
 
+router.route('/score')
+.get(scoreController.index)
 //export 
 module.exports = router;
