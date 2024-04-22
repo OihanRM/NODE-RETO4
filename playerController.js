@@ -72,26 +72,29 @@ exports.delete = function(req, res)
 }
 exports.update = function(req, res)
 {
-    Player.findOne(req.params.player_name).then(function(player)
-    {
-        player.name = req.body.name ? req.body.name : player.name;
-        player.password = req.body.password ? req.body.password : player.password;
+    Player.findOne(
+        {
+            name: req.params.player_name
+        }).then(function(player)
+        {
+            player.name = req.body.name ? req.body.name : player.name;
+            player.password = req.body.password ? req.body.password : player.password;
 
-        player.save().then(function()
-        {
-            res.json(
-                {
-                    message: "Player updated",
-                    data: player
-                });
-        }).catch(function(err)
-        {
-            res.json(
-                {
-                    status: "error",
-                    message: err
-                });
-        });
+            player.save().then(function()
+            {
+                res.json(
+                    {
+                        message: "Player updated",
+                        data: player
+                    });
+            }).catch(function(err)
+            {
+                res.json(
+                    {
+                        status: "error",
+                        message: err
+                    });
+            });
     });
 }
 
