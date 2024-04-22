@@ -9,7 +9,7 @@ var playerSchema = mongoose.Schema({
         required: true
     },
     password: String
-});
+},{collection: 'player'});
 
 var Player = module.exports = mongoose.model('player', playerSchema);
 
