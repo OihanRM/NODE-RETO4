@@ -29,7 +29,7 @@ router.route('/player')
 
 router.route('/player/:player_name')
 .delete(playerController.delete)
-.get(playerController.update)
+.put(playerController.update)
 
 router.route('/score')
 .get(scoreController.index)
