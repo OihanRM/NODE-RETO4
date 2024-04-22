@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 // Connect to MongoDB
-mongoose.connect('mongodb://18.204.147.192/afg', { useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost/afg', { useNewUrlParser: true, useUnifiedTopology: true});
 
 var db = mongoose.connection;
 

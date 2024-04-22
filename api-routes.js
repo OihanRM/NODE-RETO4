@@ -21,7 +21,7 @@ var playerController = require('./playerController');
 
 
 //routes
-router.route('/players')
+router.route('/player')
 .get(playerController.index)
 .post(playerController.new)
 

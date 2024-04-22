@@ -5,7 +5,7 @@ Player = require ('./playerModel');
 //handle index actions
 exports.index = function(req, res)
 {
-    Player.get().then(function(players)
+    Player.find().then(function(players)
     {
         res.json(
         {
