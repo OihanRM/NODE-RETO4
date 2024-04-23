@@ -8,7 +8,8 @@ var scoreSchema = mongoose.Schema({
         ref: 'player',
         required: true
     },
-    Score : Number
+    Score : Number,
+    name: String
 },{collection: 'score'});
 
 var Score = module.exports = mongoose.model('score', scoreSchema);
