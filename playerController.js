@@ -27,6 +27,7 @@ exports.index = function(req, res)
 }
 
 exports.indexByName = function(req, res) {
+    console.log("Peticion de Jugador y puntuaciones recibida");
     Player.findOne({ name: req.params.player_name })
         .exec()
         .then(function(player) {
