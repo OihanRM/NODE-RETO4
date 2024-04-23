@@ -4,7 +4,7 @@
 let express = require('express');
 let bodyParser = require('body-parser');
 let mongoose = require('mongoose');
-const cors = require('cors');
+let cors = require('cors');
 
 console.log('running AFG web service index');
 
@@ -45,6 +45,7 @@ app.listen(port, function()
 })
 
 app.use('/api', apiRoutes);
+app.use(cors());
 
 
 
