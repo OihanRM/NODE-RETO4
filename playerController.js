@@ -26,6 +26,43 @@ exports.index = function(req, res)
     });
 }
 
+exports.indexByName = function(req, res) {
+    Player.findOne({ name: req.params.player_name })
+        .exec()
+        .then(function(player) {
+            if (!player) {
+                return res.json({
+                    status: "error",
+                    message: "Player not found"
+                });
+            }
+            
+            // Ahora buscamos las puntuaciones asociadas a este jugador
+            Score.find({ player: player._id })
+                .exec()
+                .then(function(scores) {
+                    res.json({
+                        status: "success",
+                        message: "Player and scores found",
+                        player: player,
+                        scores: scores
+                    });
+                })
+                .catch(function(err) {
+                    res.json({
+                        status: "error",
+                        message: err
+                    });
+                });
+        })
+        .catch(function(err) {
+            res.json({
+                status: "error",
+                message: err
+            });
+        });
+}
+
 exports.new = function(req, res)
 {
     var newPlayer = new Player();

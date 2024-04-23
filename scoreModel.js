@@ -3,7 +3,11 @@ var mongoose = require('mongoose');
 
 //setup schema
 var scoreSchema = mongoose.Schema({
-    player: String,
+    player: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'player',
+        required: true
+    },
     Score : Number
 },{collection: 'score'});
 
