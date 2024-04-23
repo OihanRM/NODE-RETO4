@@ -34,6 +34,7 @@ router.route('/player/:player_name')
 
 router.route('/score')
 .get(scoreController.index)
+.post(scoreController.new)
 
 //export 
 module.exports = router;
