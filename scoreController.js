@@ -29,7 +29,7 @@ exports.new = async function(req, res) {
     try {
         var score = new Score({
             Score: req.body.Score,
-            playerID: req.body.playerID
+            player: req.body.playerID
         });
         await score.save();
         res.json({
