@@ -14,6 +14,8 @@ let apiRoutes = require("./api-routes");
 //initialize the app
 let app = express();
 
+app.use(cors());
+
 // Configure body-parser to handle post requests
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -45,7 +47,7 @@ app.listen(port, function()
 })
 
 app.use('/api', apiRoutes);
-app.use(cors());
+
 
 
 
