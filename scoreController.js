@@ -30,7 +30,6 @@ exports.new = async function(req, res) {
         var score = new Score({
             Score: req.body.Score,
             player: req.body.player,
-            name: req.body.name
         });
         await score.save();
         res.json({
