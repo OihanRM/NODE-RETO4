@@ -154,7 +154,7 @@ exports.indexTop10 = function(req, res) {
                 message: "Scores not found"
             });
         }
-
+ 
         let playerIDS = [];
         scores.forEach(function(score) {
             playerIDS.push(score.player);

@@ -33,7 +33,7 @@ router.route('/player/:player_name')
 .get(playerController.indexByName)
 
 router.route('/score/top')
-.get(scoreController.indexTop10)
+.get(playerController.indexTop10)
 
 router.route('/score')
 .get(scoreController.index)
