@@ -148,12 +148,6 @@ exports.update = function(req, res)
 exports.indexTop10 = function(req, res) {
     console.log("Peticion de top 10 jugadores recibida");
     Score.find().sort({Score: -1}).limit(10).then(function(scores) {
-        res.json({
-            status: "success",
-            message: "players scores:",
-            data: scores
-            });
-            
         if(!scores || scores.length === 0) {
             return res.json({
                 status: "error",
