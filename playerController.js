@@ -150,6 +150,7 @@ exports.indexTop10 = function(req, res) {
     Score.find().sort({Score: -1}).limit(10).then(function(scores) {
         res.json({
             status: "success",
+            message: "players scores:",
             data: scores
             });
             
