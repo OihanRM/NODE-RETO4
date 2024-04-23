@@ -4,7 +4,6 @@
 let express = require('express');
 let bodyParser = require('body-parser');
 let mongoose = require('mongoose');
-const express = require('express');
 const cors = require('cors');
 
 console.log('running AFG web service index');
