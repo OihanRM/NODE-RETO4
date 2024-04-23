@@ -155,11 +155,13 @@ exports.indexTop10 = function(req, res) {
             });
         }
 
-        // Extraer los IDs de los jugadores de las puntuaciones encontradas
-        const playerIds = scores.map(score => score.player);
+        let playerIDS = [];
+        scores.forEach(function(score) {
+            playerIDS.push(score.player);
+        });
 
         // Buscar los jugadores asociados a los IDs encontrados
-        Player.find({ _id: { $in: playerIds } }).then(function(players) {
+        Player.find({ _id: { $in: playerIDS } }).then(function(players) {
             res.json({
                 status: "success",
                 message: "Top 10 players retrieved successfully",
