@@ -36,5 +36,8 @@ router.route('/score')
 .get(scoreController.index)
 .post(scoreController.new)
 
+router.route('/score/top')
+.get(scoreController.indexTop10)
+
 //export 
 module.exports = router;

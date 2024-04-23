@@ -145,3 +145,37 @@ exports.update = function(req, res)
     });
 }
 
+exports.indexTop10 = function(req, res) {
+    console.log("Peticion de top 10 jugadores recibida");
+    Score.find().sort({Score: -1}).limit(10).then(function(scores) {
+        if(!scores || scores.length === 0) {
+            return res.json({
+                status: "error",
+                message: "Scores not found"
+            });
+        }
+
+        // Extraer los IDs de los jugadores de las puntuaciones encontradas
+        const playerIds = scores.map(score => score.player);
+
+        // Buscar los jugadores asociados a los IDs encontrados
+        Player.find({ _id: { $in: playerIds } }).then(function(players) {
+            res.json({
+                status: "success",
+                message: "Top 10 players retrieved successfully",
+                data: players
+            });
+            console.log("Peticion de top 10 jugadores servida");
+        }).catch(function(err) {
+            res.json({
+                status: "error",
+                message: err
+            });
+        });
+    }).catch(function(err) {
+        res.json({
+            status: "error",
+            message: err
+        });
+    });
+}
