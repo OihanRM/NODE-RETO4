@@ -25,21 +25,21 @@ exports.index = function(req, res)
 }
 
 
-exports.new = function(req, res)
-{
-    var score = new Score();
-    score.Score = 0;
-    score.playerID = req.body.playerID;
-    score.save(function(err)
-    {
-        if(err)
-        {
-            res.json(err);
-        }
-        res.json(
-        {
+exports.new = async function(req, res) {
+    try {
+        var score = new Score({
+            Score: req.body.Score,
+            playerID: req.body.playerID
+        });
+        await score.save();
+        res.json({
             message: 'New score created!',
             data: score
         });
-    });
+    } catch (err) {
+        res.json({
+            status: 'error',
+            message: err.message
+        });
+    }
 }
