@@ -32,12 +32,14 @@ router.route('/player/:player_name')
 .put(playerController.update)
 .get(playerController.indexByName)
 
+router.route('/score/top')
+.get(scoreController.indexTop10)
+
 router.route('/score')
 .get(scoreController.index)
 .post(scoreController.new)
 
-router.route('/score/top')
-.get(scoreController.indexTop10)
+
 
 //export 
 module.exports = router;
