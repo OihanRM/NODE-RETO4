@@ -156,8 +156,10 @@ exports.indexTop10 = function(req, res) {
         }
  
         let playerIDS = [];
+        let scores;
         scores.forEach(function(score) {
             playerIDS.push(score.player);
+            scores.push(score.Score);
         });
 
         // Buscar los jugadores asociados a los IDs encontrados
@@ -165,7 +167,7 @@ exports.indexTop10 = function(req, res) {
             res.json({
                 status: "success",
                 message: "Top 10 players retrieved successfully",
-                data: players
+                data: { players, scores }
             });
             console.log("Peticion de top 10 jugadores servida");
         }).catch(function(err) {
