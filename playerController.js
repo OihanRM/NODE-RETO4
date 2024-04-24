@@ -117,7 +117,7 @@ exports.delete = function(req, res)
 }
 exports.update = function(req, res)
 {
-    console.log("Peticion de actualizar nombre/contraseña jugador recibida");
+    console.log("Peticion de actualizar nombre/contraseña/games jugador recibida");
     Player.findOne(
         {
             name: req.params.player_name
@@ -135,7 +135,7 @@ exports.update = function(req, res)
                         message: "Player updated",
                         data: player
                     });
-                    console.log("Peticion de actualizar nombre/contraseña jugador servida");
+                    console.log("Peticion de actualizar nombre/contraseña/games jugador servida");
             }).catch(function(err)
             {
                 res.json(
