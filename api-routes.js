@@ -32,6 +32,9 @@ router.route('/player/:player_name')
 .put(playerController.update)
 .get(playerController.indexByName)
 
+router.route('/player/login')
+.post(playerController.login)
+
 router.route('/score/top')
 .get(playerController.indexTop10)
 

@@ -181,3 +181,36 @@ exports.indexTop10 = function(req, res) {
         });
     });
 }
+
+exports.login = function(req, res) {
+    console.log("Peticion de login recibida");
+    Player.findOne(
+        { 
+            name: req.body.name, 
+            password: req.body.password 
+        }).exec()
+        .then(function(player) {
+            if (!player) {
+                console.log("Peticion de login servida (jugador no encontrado)");
+                res.json({
+                    success: false,
+                    message: "Nombre de usuario o contraseña incorrectos"
+                });
+            } else 
+            {
+                console.log("Peticion de login servida (jugador encontrado)");
+                res.json({
+                    success: true,
+                    message: "Inicio de sesión exitoso",
+                    data: player
+                });
+            }
+        })
+        .catch(function(err) {
+            console.log("Error en la consulta de inicio de sesión:", err);
+            res.json({
+                success: false,
+                message: "Error en la consulta de inicio de sesión"
+            });
+        });
+};
