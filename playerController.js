@@ -125,6 +125,8 @@ exports.update = function(req, res)
         {
             player.name = req.body.name ? req.body.name : player.name;
             player.password = req.body.password ? req.body.password : player.password;
+            player.games = req.body.games ? req.body.games : player.games;
+            player.avatar = req.body.avatar ? req.body.avatar : player.avatar;
 
             player.save().then(function()
             {
