@@ -9,10 +9,10 @@ var playerSchema = mongoose.Schema({
         type: String,
         required: true,
         unique: true,
-        avatar: Number
     },
     password: String,
-    games: Number
+    games: Number,
+    avatar: Number
 },{collection: 'player'});
 
 playerSchema.plugin(validator);
