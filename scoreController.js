@@ -6,14 +6,14 @@ exports.index = function(req, res)
 {
     Score.find().then(function(scores)
     {
-        console.log("Scores retrieved successfully");
+        console.log("Peticion de todas las puntuaciones recibida");
         res.json(
         {
             status: "succes",
             message: "Scores retrieved successfully",
             data: scores
         });
-        console.log(scores);
+        console.log("Peticion de todas las puntuaciones servida");
     }).catch(function(err)
     {
         res.json(
@@ -26,6 +26,7 @@ exports.index = function(req, res)
 
 
 exports.new = async function(req, res) {
+    console.log("Peticion de creacion de puntuacion recibida");
     try {
         var score = new Score({
             Score: req.body.Score,
@@ -36,6 +37,7 @@ exports.new = async function(req, res) {
             message: 'New score created!',
             data: score
         });
+        console.log("Peticion de creacion de puntuacion servida");
     } catch (err) {
         res.json({
             status: 'error',
