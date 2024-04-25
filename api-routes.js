@@ -43,7 +43,7 @@ router.route('/score')
 .post(scoreController.new)
 
 router.route('/delete/:player_id')
-.delete(playerController.delete)
+.delete(playerController.deletePlayer)
 
 
 
