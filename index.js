@@ -46,7 +46,11 @@ app.listen(port, function()
     console.log("Running RestHub for AFG on port " + port);
 })
 
+app.use(express.static('public'));
+
 app.use('/api', apiRoutes);
+
+
 
 
 
