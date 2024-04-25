@@ -1,7 +1,7 @@
 /bin/bash
 # Configuración de nombre de usuario y contraseña
 git_user="OihanRM"
-git_pw="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"
+
 
 # Paso 1: Agregar todos los cambios al área de preparación de Git
 git add .
