@@ -115,6 +115,38 @@ exports.delete = function(req, res)
                 });
         });
 }
+
+exports.deletePlayer = function(req, res) 
+{
+    console.log("Peticion de borrar jugador y puntajes recibida");
+    Player.deleteOne({ _id: req.params.player_id })
+        .exec()
+        .then(function() {
+            // Ahora eliminamos las puntuaciones asociadas a este jugador
+            Score.deleteMany({ player: req.params.player_id })
+                .exec()
+                .then(function() {
+                    res.json({
+                        status: "success",
+                        message: "Player and scores deleted"
+                    });
+                    console.log("Peticion de borrar jugador y puntajes servida");
+                })
+                .catch(function(err) {
+                    res.json({
+                        status: "error",
+                        message: err
+                    });
+                });
+        })
+        .catch(function(err) {
+            res.json({
+                status: "error",
+                message: err
+            });
+        });
+}
+
 exports.update = function(req, res)
 {
     console.log("Peticion de actualizar nombre/contraseña/games jugador recibida");

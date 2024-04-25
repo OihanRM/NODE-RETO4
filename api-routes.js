@@ -42,6 +42,9 @@ router.route('/score')
 .get(scoreController.index)
 .post(scoreController.new)
 
+router.route('/delete/:player_id')
+.delete(playerController.delete)
+
 
 
 //export 
