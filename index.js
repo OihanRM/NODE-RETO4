@@ -38,7 +38,7 @@ var port = process.env.PORT || 8080;
 
 
 //Default URL
-app.get('/', (req, res) => res.send('WS AFG'));
+app.get('/', (req, res) => res.app.use(express.static('public')));
 
 //Launch app to listen to specified port
 app.listen(port, function()
@@ -46,7 +46,7 @@ app.listen(port, function()
     console.log("Running RestHub for AFG on port " + port);
 })
 
-app.use(express.static('public'));
+//app.use(express.static('public'));
 
 app.use('/api', apiRoutes);
 
