@@ -157,11 +157,15 @@ footer {
 }
 
 .welcome {
-    font-size: 24px;
+    display: none;
+    position: center;
+    font-size: 35px;
     color: #fff;
     text-align: center;
     margin-top: 20px;
-    font-family: 'Lobster';
+    font-family: fantasy;
+    opacity: 0.8;
+
 }
 
 
@@ -259,7 +263,7 @@ input[type="password"] {
     padding: 20px;
     border: 1px solid #888;
     border-radius: 5px;
-    width: 30%; /* Ajusta el ancho del modal según tus necesidades */
+    width: 30%; 
 }
 
 .modal1-buttons {
@@ -269,5 +273,5 @@ input[type="password"] {
 }
 
 .modal1-buttons button {
-    width: 45%; /* Ancho de los botones */
+    width: 45%;
 }

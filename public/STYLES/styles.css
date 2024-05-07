@@ -273,8 +273,9 @@ h2 {
 }
   
 .remember{
-    color: #fff
+    color: #fff;
 }
+
 
 button{
     background-color: #a0c4eb; 
@@ -284,6 +285,7 @@ button{
     border-radius: 5px; 
     font-size: 12px; 
     cursor: pointer; 
+    font-size: 15px;
 }
 
 .signUp-link{

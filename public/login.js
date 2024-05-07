@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         var data = {
             name: name, 
-            password: password
+            password: password,
         };
 
         fetch('http://3.226.201.60:8080/api/login/', {
@@ -21,15 +21,15 @@ document.addEventListener('DOMContentLoaded', function () {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data) 
+            body: JSON.stringify(data)
         })
         .then(response => response.json())
         .then(data => {
+            console.log(data.data._id);
+            localStorage.setItem('playerID', data.data._id);
             if (data.success) {
                 window.location.href = 'user.html';
-                console.log('username:', data.name);
-
-            } else {
+            } else {    
                 loginMessage.textContent = 'Incorrect password or user. Please try again.';
             }
         })

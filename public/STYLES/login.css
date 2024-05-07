@@ -228,6 +228,6 @@ footer {
     cursor: pointer;
     position: absolute;
     top: 50%;
-    right: 30px; /* Puedes ajustar esta posición según tu diseño */
+    right: 30px;
     transform: translateY(-50%);
 }

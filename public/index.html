@@ -82,14 +82,17 @@
     <br>
     <br>
     <div class="descargar">
+    <a href="juego/MarlonGame (1).rar" download>
         <button class="boton">
-          Download Here! 
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
+            Download Here! 
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </button>
-      </div>
+    </a>
+</div>
+
       <br>
       <br>
     <br>
@@ -196,13 +199,13 @@
                         <input type="radio" id="avatar3" name="avatar" value="3">
                     
                     </div>
-                    <div class="remember">
-                        <label><input type="checkbox"> I agree to the terms & conditions</label>
+                    <div class="remember" id="rememberCheckbox">
+                        <label><input type="checkbox" id="agreeCheckbox"> I agree to the terms & conditions</label>
                     </div>
                     <label><p id="mensajeError" style="color: black; background-color: red;"></p></label>
                     <label><p id="mensajeExito" style="color: black; background-color: green;" ></p></label>
                     <br>
-                    <button type="submit">Sign Up</button>
+                    <button type="submit" id="signupButton">Sign Up</button>
                     
                     <div class="signUp-link">
                         <br>
@@ -215,6 +218,8 @@
             <script src="scores.js"></script>
             <script src="players.js"></script>
             <script src="registroWS.js"></script>
+            <script src="button_sign.js"></script>
+            
         </div>
     </div>  
 

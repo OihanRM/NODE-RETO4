@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     var name = localStorage.getItem('name');
-    console.log(name);
-
+    var playerID = localStorage.getItem('playerID');
     $('#delete').click(function(event) {
         event.preventDefault();
 
@@ -17,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         $('#modal-confirm_delete').click(function() {
             $.ajax({
-                url: 'http://3.226.201.60:8080/api/player/' + name,
+                url: 'http://3.226.201.60:8080/api/delete/' + playerID,
                 type: 'DELETE',
                 success: function(response) {
                     window.location.href = 'index.html';
