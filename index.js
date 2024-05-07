@@ -1,67 +1,53 @@
-//Filename : index.js
+// Filename: index.js
 
-//import Express
-let express = require('express');
-let bodyParser = require('body-parser');
-let mongoose = require('mongoose');
-let cors = require('cors');
+// Import required modules
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const path = require('path'); // Import path module for file paths
 
-console.log('running AFG web service index');
+console.log('Running AFG web service index');
 
-//import Router
-let apiRoutes = require("./api-routes");
+// Import Router
+const apiRoutes = require("./api-routes");
 
-//initialize the app
-let app = express();
+// Initialize the app
+const app = express();
 
+// Enable CORS
 app.use(cors());
 
 // Configure body-parser to handle post requests
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost/afg', { useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost/afg', { useNewUrlParser: true, useUnifiedTopology: true });
 
-var db = mongoose.connection;
+const db = mongoose.connection;
 
-if(!db)
-{
-    console.log("Error connecting db");
-}else
-{
-    console.log("Db connected successfully");
+if (!db) {
+    console.log("Error connecting to db");
+} else {
+    console.log("DB connected successfully");
 }
 
-//Setup server port
-var port = process.env.PORT || 8080;
+// Setup server port
+const port = process.env.PORT || 8080;
 
+// Serve static files from the 'public' directory
+app.use(express.static('public'));
 
-//Default URL
-app.get('/', (req, res) => res.app.use(express.static('public')));
+// Define route for serving index.html file
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
-//Launch app to listen to specified port
-app.listen(port, function()
-{
-    console.log("Running RestHub for AFG on port " + port);
-})
+// Launch app to listen to specified port
+app.listen(port, () => {
+    console.log(`Running RestHub for AFG on port ${port}`);
+});
 
-//app.use(express.static('public'));
-
+// Define API routes
 app.use('/api', apiRoutes);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
